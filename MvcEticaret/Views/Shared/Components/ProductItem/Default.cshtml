@@ -1,0 +1,38 @@
+﻿@model ProductItemViewModel
+
+
+<div class="col mb-5">
+    <div class="card h-100">
+        <img class="card-img-top" src="@Model.imageUrl" alt="..." />
+        <div class="card-body p-4">
+            <div class="text-center">
+                <h5 class="fw-bolder">@Model.title</h5>
+
+                @if (Model.isSale == true)
+                {
+                    <div class="d-flex justify-content-center small text-warning mb-2">
+                        @for (int i = 0; i < Model.starCount; i++)
+                        {
+                            <div class="bi-star-fill"></div>
+                        }
+                    </div>
+
+                    <div class="badge bg-dark text-white position-absolute" style="top: 1.5rem ; right: 1.5rem">Sale</div>
+                    <span class="text-muted text-decoration-line-through">@Model.oldPrice</span>
+                    <span>$@Model.price</span>
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center" style="margin-top:25px"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                    </div>
+                }
+                else
+                {
+                    <span>$@Model.price</span>
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center" style="margin-top:55px"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
